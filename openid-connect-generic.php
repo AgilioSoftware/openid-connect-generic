@@ -14,9 +14,9 @@
  *
  * @wordpress-plugin
  * Plugin Name:       OpenID Connect Generic
- * Plugin URI:        https://github.com/daggerhart/openid-connect-generic
+ * Plugin URI:        https://github.com/AgilioSoftware/openid-connect-generic
  * Description:       Connect to an OpenID Connect identity provider using Authorization Code Flow.
- * Version:           3.10.0
+ * Version:           100.10.0
  * Requires at least: 5.0
  * Requires PHP:      7.4
  * Author:            daggerhart
