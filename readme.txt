@@ -4,7 +4,7 @@ Donate link: http://www.daggerhart.com/
 Tags: security, login, oauth2, openidconnect, apps, authentication, autologin, sso
 Requires at least: 5.0
 Tested up to: 6.4.3
-Stable tag: 3.10.0
+Stable tag: 100.10.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -50,6 +50,10 @@ On the settings page for this plugin (Dashboard > Settings > OpenID Connect Gene
 
 
 == Changelog ==
+
+= 100.10.0 =
+
+* Feature: Hard coded pkce flow for Agilio
 
 = 3.10.0 =
 
