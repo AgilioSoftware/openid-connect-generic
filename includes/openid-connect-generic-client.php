@@ -227,6 +227,9 @@ class OpenID_Connect_Generic_Client {
 			$request['body'] += array( 'acr_values' => $this->acr_values );
 		}
 
+		$request['body'] += array( 'code_verifier' => $_SESSION['code_verifier'] );
+		unset($_SESSION['code_verifier']);
+
 		// Allow modifications to the request.
 		$request = apply_filters( 'openid-connect-generic-alter-request', $request, 'get-authentication-token' );
 

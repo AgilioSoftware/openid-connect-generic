@@ -144,6 +144,10 @@ class OpenID_Connect_Generic {
 	 */
 	public function init() {
 
+		if (session_status() === PHP_SESSION_NONE) {
+			session_start();
+		}
+
 		$this->client = new OpenID_Connect_Generic_Client(
 			$this->settings->client_id,
 			$this->settings->client_secret,

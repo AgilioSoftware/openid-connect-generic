@@ -236,6 +236,14 @@ class OpenID_Connect_Generic_Client_Wrapper {
 			$url_format .= '&acr_values=%7$s';
 		}
 
+		$codeVerifier = bin2hex(random_bytes(64));
+		$_SESSION['code_verifier'] = $codeVerifier;
+
+		$codeChallenge = rtrim(strtr(base64_encode(hash('sha256', $codeVerifier, true)), '+/', '-_'), '=');
+
+		$url_format .= '&code_challenge=%8$s';
+		$url_format .= '&code_challenge_method=%9$s';
+
 		$url = sprintf(
 			$url_format,
 			$atts['endpoint_login'],
@@ -244,7 +252,9 @@ class OpenID_Connect_Generic_Client_Wrapper {
 			rawurlencode( $atts['client_id'] ),
 			$this->client->new_state( $atts['redirect_to'] ),
 			rawurlencode( $atts['redirect_uri'] ),
-			rawurlencode( $atts['acr_values'] )
+			rawurlencode( $atts['acr_values'] ),
+			rawurlencode( $codeChallenge ),
+			rawurlencode( 'S256' )
 		);
 
 		$url = apply_filters( 'openid-connect-generic-auth-url', $url );
